@@ -7,7 +7,7 @@ int	main(void)
 
 	/*result = printf("Hola mundo\n");
 	printf("ORIGINAL: %d\n", result);*/
-	result = ft_printf("Hola mundo %c\n", 'A');
+	result = ft_printf("Hola mundo %s\n", "holaa");
 	printf("FUNCION: %d\n", result);
 	return (0);
 }

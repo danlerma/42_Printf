@@ -1,32 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf.h                                        :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/13 20:43:03 by dlerma-c          #+#    #+#             */
-/*   Updated: 2021/09/13 20:54:44 by dlerma-c         ###   ########.fr       */
+/*   Created: 2021/08/10 15:21:13 by dlerma-c          #+#    #+#             */
+/*   Updated: 2021/08/11 17:50:07 by dlerma-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRINTF_H
+#include"libft.h"
 
-# define PRINTF_H
-
-# include "libft.h"
-# include <unistd.h>
-# include <stdarg.h>
-# include <stdio.h>
-
-typedef struct s_percent
+void	ft_putchar_fd(char c, int fd)
 {
-    char    c_character;
-    int     d_integer;
-    char    *s_string;
-}   t_percent;
-
-
-int	ft_printf(const char *, ...);
-
-#endif
+	write(fd, &c, sizeof(c));
+}
