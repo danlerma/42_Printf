@@ -6,7 +6,7 @@
 #    By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/13 20:41:34 by dlerma-c          #+#    #+#              #
-#    Updated: 2021/09/13 20:42:48 by dlerma-c         ###   ########.fr        #
+#    Updated: 2021/09/14 17:15:12 by dlerma-c         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,13 +29,13 @@ run: all
 	./a.out
 
 normi: 
-	norminette $(SRC) ft_printf.h
+	norminette $(SRC) printf.h
 
 clean: 
 	rm -f $(OBJS)
 
 fclean:	clean
-	rm -f $(NAME) main.c
+	rm -f $(NAME)
 
 re: fclean all
 

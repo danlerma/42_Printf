@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,11 +10,20 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
+#ifndef PRINTF_H
 
-# define FT_PRINTF_H
+# define PRINTF_H
 
 # include <unistd.h>
+# include <stdarg.h>
+# include <stdio.h>
+
+typedef struct s_percent
+{
+    char    c_character;
+    int     d_integer;
+}   t_percent;
+
 
 int	ft_printf(const char *, ...);
 
