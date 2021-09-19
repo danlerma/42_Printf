@@ -2,3 +2,4 @@
 .DS_Store
 *.out
 a.out.dSYM
+/printfTester

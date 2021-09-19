@@ -6,13 +6,14 @@
 /*   By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/10 15:21:13 by dlerma-c          #+#    #+#             */
-/*   Updated: 2021/08/11 17:50:07 by dlerma-c         ###   ########.fr       */
+/*   Updated: 2021/09/19 18:32:31 by dlerma-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"libft.h"
 
-void	ft_putchar_fd(char c, int fd)
+int	ft_putchar_fd(char c, int fd)
 {
 	write(fd, &c, sizeof(c));
+	return (1);
 }

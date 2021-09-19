@@ -6,7 +6,7 @@
 #    By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/13 20:41:34 by dlerma-c          #+#    #+#              #
-#    Updated: 2021/09/14 20:56:27 by dlerma-c         ###   ########.fr        #
+#    Updated: 2021/09/19 17:38:53 by dlerma-c         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ SRC = ft_printf.c ft_putchar_fd.c ft_putnbr_fd.c ft_putstr.c
 
 OBJS = $(SRC:.c=.o)
 
-CFLAGS = -Wall -Wextra -Werror -pedantic
+CFLAGS = -Wall -Wextra -Werror -pedantic -g3
 
 all: $(NAME)
 
@@ -26,7 +26,7 @@ $(NAME): $(OBJS)
 
 run: all
 	gcc $(CFLAGS) $(NAME) main.c -g3 -o a.out
-	./a.out
+	./a.out $(filter-out $@,$(MAKECMDGOALS))
 
 normi: 
 	norminette $(SRC) printf.h
@@ -35,7 +35,7 @@ clean:
 	rm -f $(OBJS)
 
 fclean:	clean
-	rm -f $(NAME)
+	rm -f $(NAME) a.out
 
 re: fclean all
 
