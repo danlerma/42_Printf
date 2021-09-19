@@ -38,11 +38,31 @@ int	main(int argc, char **argv)
 	else if (strcmp(argv[1], "%d") == 0)
 	{
 		printf("ORIGINAL: \n");
-		result = printf("%d %d %d %d %d %d", 1, 98 , -45, 1245648, -2147483647, 2147483647);
+		result = printf("%d %d %d %d %d %d %d", 1, 98 , -45, 1245648, -2147483647, 2147483647, 0);
 		printf("\nNUM: %d\n\n", result);
 		////////////////////////////////////
 		printf("FUNCION: \n");
-		result = ft_printf("%d %d %d %d %d %d", 1, 98 , -45, 1245648, -2147483647, 2147483647);
+		result = ft_printf("%d %d %d %d %d %d %d", 1, 98 , -45, 1245648, -2147483647, 2147483647, 0);
+		printf("\nNUM: %d\n\n", result);
+	}
+	else if (strcmp(argv[1], "%i") == 0)
+	{
+		printf("ORIGINAL: \n");
+		result = printf("%i %i %i %i %i %i %i", 1, 98 , -45, 1245648, -2147483647, 2147483647, 0);
+		printf("\nNUM: %d\n\n", result);
+		////////////////////////////////////
+		printf("FUNCION: \n");
+		result = ft_printf("%i %i %i %i %i %i %i", 1, 98 , -45, 1245648, -2147483647, 2147483647, 0);
+		printf("\nNUM: %d\n\n", result);
+	}
+	else if (strcmp(argv[1], "%u") == 0)
+	{
+		printf("ORIGINAL: \n");
+		result = printf("%u %u %u %u %u %u %u", -1, 98 , -4545, -1000000000, -2147483647, 2147483647, 0);
+		printf("\nNUM: %d\n\n", result);
+		////////////////////////////////////
+		printf("FUNCION: \n");
+		result = ft_printf("%u %u %u %u %u %u %u", -1, 98 , -4545, -1000000000, -2147483647, 2147483647, 0);
 		printf("\nNUM: %d\n\n", result);
 	}
 	else if (strcmp(argv[1], "%s") == 0)
@@ -79,5 +99,6 @@ int	main(int argc, char **argv)
 		result = ft_printf("NULL %s NULL", NULL);
 		printf("\nNUM: %d\n\n", result);
 	}
+	system("leaks a.out\n");
 	return (0);
 }

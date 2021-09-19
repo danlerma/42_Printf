@@ -6,13 +6,14 @@
 #    By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/13 20:41:34 by dlerma-c          #+#    #+#              #
-#    Updated: 2021/09/19 17:38:53 by dlerma-c         ###   ########.fr        #
+#    Updated: 2021/09/19 20:43:55 by dlerma-c         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 
-SRC = ft_printf.c ft_putchar_fd.c ft_putnbr_fd.c ft_putstr.c
+SRC = ft_printf.c ft_putchar_fd.c ft_putnbr_fd.c ft_putstr.c \
+		ft_itoa.c ft_atoi.c
 
 OBJS = $(SRC:.c=.o)
 

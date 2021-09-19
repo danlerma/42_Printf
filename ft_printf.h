@@ -21,12 +21,12 @@
 
 typedef struct s_percent
 {
-    char    c_character;
-    int     d_integer;
-    char    *s_string;
-}   t_percent;
+	char			c_character;
+	int				d_integer;
+	char			*s_string;
+	unsigned int	u_integer;
+}	t_percent;
 
-
-int	ft_printf(const char *, ...);
+int	ft_printf(const char *str, ...);
 
 #endif
