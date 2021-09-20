@@ -6,7 +6,7 @@
 /*   By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/13 20:30:24 by dlerma-c          #+#    #+#             */
-/*   Updated: 2021/09/19 20:57:19 by dlerma-c         ###   ########.fr       */
+/*   Updated: 2021/09/20 18:44:39 by dlerma-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,7 @@ static int	check_percent(const char *str, va_list ap, int i)
 	count = 0;
 	y = 0;
 	if (str[i + 1] == 'c')
-	{
-		per.c_character = va_arg(ap, int);
-		count = ft_putchar_fd(per.c_character, 1);
-	}
+		count = ft_putchar_fd(va_arg(ap, int), 1);
 	//string (s)
 	else if (str[i + 1] == 's')
 	{
@@ -37,20 +34,20 @@ static int	check_percent(const char *str, va_list ap, int i)
 	//int (d) int (i)
 	else if (str[i + 1] == 'd' || str[i + 1] == 'i')
 	{
-		per.d_integer = va_arg(ap, int);
-		per.s_string = ft_itoa(per.d_integer);
+		per.s_string = ft_itoa(va_arg(ap, int));
 		count += ft_putstr(per.s_string);
 		free(per.s_string);
 	}
 	//int (u)
 	else if (str[i + 1] == 'u')
+		count = str_to_unint(va_arg(ap, unsigned int));
+	//char (p)
+	else if (str[i + 1] == 'p')
 	{
-		per.d_integer = va_arg(ap, int);
-		per.s_string = ft_itoa(per.d_integer);
-		per.u_integer = ft_atoi(per.s_string);
-		count += ft_putstr(per.u_integer);
-		free(per.s_string);
+		count = ft_putchar_fd('p', 1);
 	}
+	else if (str[i + 1] == '%')
+		count = ft_putchar_fd('%', 1);
 	return (count);
 }
 

@@ -1,15 +1,24 @@
 #include"ft_printf.h"
 #include <stdio.h>
 #include <string.h>
+#include <unistd.h>
 
 int	main(int argc, char **argv)
 {
-	int	result;
+	//int	result;
 
 	(void)argc;
-	if (strcmp(argv[1], "string") == 0)
+	(void)argv;
+	char	*str;
+	char	*aux;
+
+	str = malloc(1);
+	aux = str & 0xf;
+	
+	write(1, aux, sizeof(str));
+	/*if (strcmp(argv[1], "string") == 0)
 	{
-		printf("ORIGINAL: \n");
+		printf("\n\nORIGINAL: \n");
 		result = printf("SOLO UN STRING.");
 		printf("\nNUM: %d\n\n", result);
 		////////////////////////////////////
@@ -98,7 +107,7 @@ int	main(int argc, char **argv)
 		printf("FUNCION: \n");
 		result = ft_printf("NULL %s NULL", NULL);
 		printf("\nNUM: %d\n\n", result);
-	}
-	system("leaks a.out\n");
+	}*/
+	//system("leaks a.out\n");
 	return (0);
 }
