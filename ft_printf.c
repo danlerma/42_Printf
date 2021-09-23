@@ -6,7 +6,7 @@
 /*   By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/13 20:30:24 by dlerma-c          #+#    #+#             */
-/*   Updated: 2021/09/20 18:44:39 by dlerma-c         ###   ########.fr       */
+/*   Updated: 2021/09/23 18:42:58 by dlerma-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,14 @@ static int	check_percent(const char *str, va_list ap, int i)
 	else if (str[i + 1] == 'p')
 	{
 		count = ft_putchar_fd('p', 1);
+	}
+	else if (str[i + 1] == 'x')
+	{
+		count = ft_itoa_base(va_arg(ap, unsigned int), "0123456789abcdef");
+	}
+	else if (str[i + 1] == 'X')
+	{
+		count = ft_itoa_base(va_arg(ap, unsigned int), "0123456789ABCDEF");
 	}
 	else if (str[i + 1] == '%')
 		count = ft_putchar_fd('%', 1);

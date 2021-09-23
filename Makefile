@@ -6,7 +6,7 @@
 #    By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/13 20:41:34 by dlerma-c          #+#    #+#              #
-#    Updated: 2021/09/20 17:49:12 by dlerma-c         ###   ########.fr        #
+#    Updated: 2021/09/23 18:49:55 by dlerma-c         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,8 @@ NAME = libftprintf.a
 
 SRC = ft_printf.c do_unsint.c ft_putchar_fd.c ft_putnbr_fd.c \
 		ft_itoa.c ft_atoi.c ft_putstr_fd.c ft_strlen.c \
-		ft_putstr.c 
+		ft_putstr.c ft_itoa_base.c ft_calloc.c ft_bzero.c \
+		ft_strjoin.c ft_memcpy.c
 
 OBJS = $(SRC:.c=.o)
 

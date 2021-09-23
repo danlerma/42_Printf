@@ -29,6 +29,7 @@ typedef struct s_percent
 
 int	ft_printf(const char *str, ...);
 
+int	ft_itoa_base(unsigned int num, char *base);
 int	str_to_unint(unsigned int num);
 
 #endif
