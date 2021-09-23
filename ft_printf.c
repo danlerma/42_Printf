@@ -6,7 +6,7 @@
 /*   By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/13 20:30:24 by dlerma-c          #+#    #+#             */
-/*   Updated: 2021/09/23 18:42:58 by dlerma-c         ###   ########.fr       */
+/*   Updated: 2021/09/23 20:33:20 by dlerma-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,15 +44,17 @@ static int	check_percent(const char *str, va_list ap, int i)
 	//char (p)
 	else if (str[i + 1] == 'p')
 	{
-		count = ft_putchar_fd('p', 1);
+		ft_putstr_fd("0x", 1);
+		//count = ft_itoa_base(va_arg(ap, int), "0123456789abcdef");
+		count = count + 2;
 	}
 	else if (str[i + 1] == 'x')
 	{
-		count = ft_itoa_base(va_arg(ap, unsigned int), "0123456789abcdef");
+		count = ft_itoa_base(va_arg(ap, int), "0123456789abcdef");
 	}
 	else if (str[i + 1] == 'X')
 	{
-		count = ft_itoa_base(va_arg(ap, unsigned int), "0123456789ABCDEF");
+		count = ft_itoa_base(va_arg(ap, int), "0123456789ABCDEF");
 	}
 	else if (str[i + 1] == '%')
 		count = ft_putchar_fd('%', 1);
@@ -86,6 +88,8 @@ int	ft_printf(const char *str, ...)
 		}
 		else
 			result += check_normal_characters(str[i]);
+		if(str[i] == '\0')
+			return(result);
 		i++;
 	}
 	va_end(ap);
