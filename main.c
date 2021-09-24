@@ -149,13 +149,13 @@ int	main(int argc, char **argv)
 	}
 	else if (strcmp(argv[1], "%p") == 0)
 	{
-		// printf("\nORIGINAL: \n");
-		// result = printf("%p %p %p %p %p %p %p", 0, 32, -98, 548987, 2147483647, -1, 1);
-		// printf("\nNUM: %d\n\n", result);
-		// ////////////////////////////////////
-		// printf("FUNCION: \n");
-		// result = ft_printf("%p %p %p %p %p %p %p", 0, 32, -98, 548987, 2147483647, -1, 1);
-		// printf("\nNUM: %d\n\n", result);
+		printf("\nORIGINAL: \n");
+		result = printf("%p %p %p %p %p %p %p", 0, 32, -98, 548987, 2147483647, -1, 1);
+		printf("\nNUM: %d\n\n", result);
+		////////////////////////////////////
+		printf("FUNCION: \n");
+		result = ft_printf("%p %p %p %p %p %p %p", 0, 32, -98, 548987, 2147483647, -1, 1);
+		printf("\nNUM: %d\n\n", result);
 	}
 	system("leaks a.out\n");
 	return (0);
