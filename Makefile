@@ -6,7 +6,7 @@
 #    By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/13 20:41:34 by dlerma-c          #+#    #+#              #
-#    Updated: 2021/09/24 19:41:23 by dlerma-c         ###   ########.fr        #
+#    Updated: 2021/09/24 23:01:30 by dlerma-c         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ SRC = ft_printf.c do_unsint.c ft_putchar_fd.c ft_putnbr_fd.c \
 
 OBJS = $(SRC:.c=.o)
 
-CFLAGS = -Wall -Wextra -Werror -pedantic -g3 #-fsanitize=address
+#CFLAGS = -Wall -Wextra -Werror -pedantic -g3 #-fsanitize=address
 
 all: $(NAME)
 
