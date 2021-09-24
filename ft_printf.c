@@ -6,7 +6,7 @@
 /*   By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/13 20:30:24 by dlerma-c          #+#    #+#             */
-/*   Updated: 2021/09/23 20:33:20 by dlerma-c         ###   ########.fr       */
+/*   Updated: 2021/09/24 18:35:17 by dlerma-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,40 +22,32 @@ static int	check_percent(const char *str, va_list ap, int i)
 	y = 0;
 	if (str[i + 1] == 'c')
 		count = ft_putchar_fd(va_arg(ap, int), 1);
-	//string (s)
 	else if (str[i + 1] == 's')
 	{
 		per.s_string = va_arg(ap, char *);
 		if (per.s_string == '\0')
-			count += ft_putstr("(null)");
+			count += ft_putstr_fd("(null)", 1);
 		else
-			count += ft_putstr(per.s_string);
+			count += ft_putstr_fd(per.s_string, 1);
 	}
-	//int (d) int (i)
 	else if (str[i + 1] == 'd' || str[i + 1] == 'i')
 	{
 		per.s_string = ft_itoa(va_arg(ap, int));
-		count += ft_putstr(per.s_string);
+		count += ft_putstr_fd(per.s_string, 1);
 		free(per.s_string);
 	}
-	//int (u)
 	else if (str[i + 1] == 'u')
-		count = str_to_unint(va_arg(ap, unsigned int));
-	//char (p)
+		count = do_unsint(va_arg(ap, unsigned int));
 	else if (str[i + 1] == 'p')
 	{
 		ft_putstr_fd("0x", 1);
-		//count = ft_itoa_base(va_arg(ap, int), "0123456789abcdef");
+		count = ft_itoa_base(va_arg(ap, int), "0123456789abcdef");
 		count = count + 2;
 	}
 	else if (str[i + 1] == 'x')
-	{
 		count = ft_itoa_base(va_arg(ap, int), "0123456789abcdef");
-	}
 	else if (str[i + 1] == 'X')
-	{
 		count = ft_itoa_base(va_arg(ap, int), "0123456789ABCDEF");
-	}
 	else if (str[i + 1] == '%')
 		count = ft_putchar_fd('%', 1);
 	return (count);
@@ -63,7 +55,7 @@ static int	check_percent(const char *str, va_list ap, int i)
 
 static int	check_normal_characters(char str)
 {
-	int count;
+	int	count;
 
 	count = 0;
 	count = ft_putchar_fd(str, 1);
@@ -72,7 +64,7 @@ static int	check_normal_characters(char str)
 
 int	ft_printf(const char *str, ...)
 {
-    va_list	ap;
+	va_list	ap;
 	int		result;
 	int		i;
 
@@ -88,8 +80,8 @@ int	ft_printf(const char *str, ...)
 		}
 		else
 			result += check_normal_characters(str[i]);
-		if(str[i] == '\0')
-			return(result);
+		if (str[i] == '\0')
+			return (result);
 		i++;
 	}
 	va_end(ap);
