@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dlerma-c <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/19 20:43:31 by dlerma-c          #+#    #+#             */
-/*   Updated: 2021/09/19 20:43:33 by dlerma-c         ###   ########.fr       */
+/*   Created: 2021/08/01 18:10:16 by dlerma-c          #+#    #+#             */
+/*   Updated: 2021/08/11 17:46:46 by dlerma-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include"libft.h"
 
 int	ft_atoi(const char *str)
 {

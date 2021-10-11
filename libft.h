@@ -6,7 +6,7 @@
 /*   By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/24 18:00:06 by dlerma-c          #+#    #+#             */
-/*   Updated: 2021/09/24 18:02:45 by dlerma-c         ###   ########.fr       */
+/*   Updated: 2021/10/11 13:32:07 by dlerma-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,13 @@
 # include <stdlib.h>
 # include <unistd.h>
 
+# define UPPER_HEX "0123456789ABCDEF"
+# define LOWER_HEX "0123456789abcdef"
+
 int		ft_putchar_fd(char c, int fd);
-void	ft_putnbr_fd(int n, int fd);
 int		ft_putstr(char *str);
 char	*ft_itoa(int n);
-int		ft_atoi(const char *str);
+int     ft_atoi(const char *str);
 int		ft_putstr_fd(char *s, int fd);
 size_t	ft_strlen(const char *c);
 void	*ft_calloc(size_t count, size_t size);

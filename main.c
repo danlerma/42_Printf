@@ -1,4 +1,4 @@
-#include"ft_printf.h"
+ #include"ft_printf.h"
 #include <stdio.h>
 #include <string.h>
 #include <unistd.h>
@@ -74,7 +74,7 @@ int	main(int argc, char **argv)
 		printf("\nNUM: %d\n\n", result);
 		////////////////////////////////////
 		printf("FUNCION: \n");
-		result = ft_printf("%x %x %x %x %x %x %x", 0, -1, 1, -1000000000, -2147483647, 2147483647, 0);
+		result = ft_printf("%x %x %x %x %x %x %x", 0, -1 , 1, -1000000000, -2147483647, 2147483647, 0);
 		printf("\nNUM: %d\n\n", result);
 		/////////////////////////////////////
 		printf("ORIGINAL: \n");
@@ -150,11 +150,11 @@ int	main(int argc, char **argv)
 	else if (strcmp(argv[1], "%p") == 0)
 	{
 		printf("\nORIGINAL: \n");
-		result = printf("%p %p %p %p %p %p %p", (void *)-1, 32, -98, 548987, 2147483647, -1, 1);
+		result = printf("%p %p %p %p %p %p %p", (void *)-1, (void *)32, (void *)-98, (void *)548987, (void *)2147483647, (void *)-1, (void *)1);
 		printf("\nNUM: %d\n\n", result);
 		////////////////////////////////////
 		printf("FUNCION: \n");
-		result = ft_printf("%p %p %p %p %p %p %p", (void *)-1, 32, -98, 548987, 2147483647, -1, 1);
+		result = ft_printf("%p %p %p %p %p %p %p", (void *)-1, (void *)32, (void *)-98, (void *)548987, (void *)2147483647, (void *)-1, (void *)1);
 		printf("\nNUM: %d\n\n", result);
 	}
 	system("leaks a.out\n");

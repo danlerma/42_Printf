@@ -6,7 +6,7 @@
 /*   By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/13 20:30:24 by dlerma-c          #+#    #+#             */
-/*   Updated: 2021/09/24 22:54:27 by dlerma-c         ###   ########.fr       */
+/*   Updated: 2021/10/11 13:31:47 by dlerma-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ static int	check_number(va_list ap, const char *str, int i)
 	else if (str[i + 1] == 'u')
 		count = do_unsint(va_arg(ap, unsigned int));
 	else if (str[i + 1] == 'x')
-		count = ft_itoa_base(va_arg(ap, int), "0123456789abcdef");
+		count = ft_itoa_base(va_arg(ap, int), LOWER_HEX);
 	else if (str[i + 1] == 'X')
-		count = ft_itoa_base(va_arg(ap, int), "0123456789ABCDEF");
+		count = ft_itoa_base(va_arg(ap, int), UPPER_HEX);
 	return (count);
 }
 
@@ -53,7 +53,7 @@ static int	check_percent(const char *str, va_list ap, int i)
 	else if (str[i + 1] == 'p')
 	{
 		ft_putstr_fd("0x", 1);
-		count = pointer_change(va_arg(ap, void *), "0123456789abcdef");
+		count = pointer_change(va_arg(ap, void *), LOWER_HEX);
 		count = count + 2;
 	}
 	else if (str[i + 1] == '%')
