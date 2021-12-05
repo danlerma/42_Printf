@@ -172,6 +172,6 @@ int	main(int argc, char **argv)
 			printf("\nNUM: %d\n\n", result);
 		}
 	}
-	system("leaks a.out\n");
+	system("leaks -q a.out\n");
 	return (0);
 }

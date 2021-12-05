@@ -10,38 +10,77 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libftprintf.a
+#··············································································#
+#                                   NAMES                                      #
+#··············································································#
 
-SRC = ft_printf.c do_unsint.c ft_putchar_fd.c pointer_change.c \
-		ft_itoa.c ft_putstr_fd.c ft_strlen.c ft_atoi.c\
-		ft_itoa_base.c ft_calloc.c ft_bzero.c num_characters.c \
-		ft_strjoin.c ft_memcpy.c 
+NAME = pipex
 
-OBJS = $(SRC:.c=.o)
+#··············································································#
+#                                    PATH                                      #
+#··············································································#
 
-CFLAGS = -Wall -Wextra -Werror -pedantic -g3 #-fsanitize=address
+OBJ_PATH = obj
+SRC_PATH = src
+INC_PATH = inc
+LBFT_PATH = lbft
+
+#··············································································#
+#                                    LIBS                                      #
+#··············································································#
+
+# flags librerias
+# ruta .a
+LDFLAGS = -L $(LBFT_PATH)
+
+# nombre lib
+LDLIBS = -lft
+
+#··············································································#
+#                                    SRCS                                      #
+#··············································································#
+
+SRCS = do_unsint.c ft_itoa_base.c ft_printf.c num_characters.c pointer_change.c
+OBJS_NAME = $(SRCS:%.c=%.o)
+OBJS = $(addprefix $(OBJ_PATH)/, $(OBJS_NAME))
+
+#··············································································#
+#                                    FLAGS                                     #
+#··············································································#
 
 CC = gcc
+CFLAGS =  -g3
+#include <xx.h> // path of .h
+CFLAGS += -I $(INC_PATH) -I $(LBFT_PATH)
+
+#··············································································#
+#                                    RULES                                     #
+#··············································································#
+
+.PHONY: all re clean fclean
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	ar -rcs $(NAME) $(OBJS)
-	@echo "MAKE PRINTF"
+	make -C $(LBFT_PATH)
+	$(CC) $^ -o $@ $(CFLAGS) $(LDFLAGS) $(LDLIBS)
 
-run: all
-	gcc $(CFLAGS) $(NAME) main.c -g3 -o a.out
-	./a.out $(filter-out $@,$(MAKECMDGOALS)) 
+debug: CFLAGS += -fsanitize=address -g3
+debug: $(NAME)
 
-normi: 
-	norminette $(SRC) printf.h
+$(OBJ_PATH)/%.o: $(SRC_PATH)/%.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
-clean: 
-	rm -f $(OBJS)
+$(OBJS): | $(OBJ_PATH)
 
-fclean:	clean
-	rm -f $(NAME) a.out
+$(OBJ_PATH): 
+	mkdir -p $(OBJ_PATH) 2> /dev/null
+
+clean:
+	make fclean -C $(LBFT_PATH)
+	rm -rf $(OBJ_PATH)
+
+fclean: clean
+	rm -rf $(NAME)
 
 re: fclean all
-
-PHONY.: clean all fclean re normi
