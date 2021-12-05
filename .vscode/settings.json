@@ -1,8 +1,0 @@
-{
-    "files.associations": {
-        "ft_printf.h": "c",
-        "libft.h": "c",
-        "unistd.h": "c",
-        "climits": "cpp"
-    }
-}
