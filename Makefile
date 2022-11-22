@@ -6,7 +6,7 @@
 #    By: dlerma-c <dlerma-c@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/13 20:41:34 by dlerma-c          #+#    #+#              #
-#    Updated: 2021/10/11 14:56:51 by dlerma-c         ###   ########.fr        #
+#    Updated: 2022/11/22 14:02:46 by dlerma-c         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,8 +14,8 @@
 #                                   NAMES                                      #
 #··············································································#
 
-NAME = pipex
-
+NAME = libftprintf.a
+LBFT_NAME = libft.a
 #··············································································#
 #                                    PATH                                      #
 #··············································································#
@@ -43,13 +43,13 @@ LDLIBS = -lft
 SRCS = do_unsint.c ft_itoa_base.c ft_printf.c num_characters.c pointer_change.c
 OBJS_NAME = $(SRCS:%.c=%.o)
 OBJS = $(addprefix $(OBJ_PATH)/, $(OBJS_NAME))
-
+LIBFT = $(addprefix $(LBFT_PATH)/, $(LBFT_NAME))
 #··············································································#
 #                                    FLAGS                                     #
 #··············································································#
 
 CC = gcc
-CFLAGS =  -g3
+CFLAGS = -Wall -Werror -Wextra -g3
 #include <xx.h> // path of .h
 CFLAGS += -I $(INC_PATH) -I $(LBFT_PATH)
 
@@ -61,9 +61,13 @@ CFLAGS += -I $(INC_PATH) -I $(LBFT_PATH)
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
+$(NAME): $(LIBFT) $(OBJS)
+	cp $(LIBFT) .
+	cp $(LBFT_NAME) $(NAME)
+	ar -rcs $(NAME) $(OBJS)
+
+$(LIBFT):
 	make -C $(LBFT_PATH)
-	$(CC) $^ -o $@ $(CFLAGS) $(LDFLAGS) $(LDLIBS)
 
 debug: CFLAGS += -fsanitize=address -g3
 debug: $(NAME)

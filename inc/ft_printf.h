@@ -14,7 +14,7 @@
 
 # define FT_PRINTF_H
 
-# include <libft.h>
+# include "../lbft/libft.h"
 # include <unistd.h>
 # include <stdarg.h>
 # include <stdio.h>
